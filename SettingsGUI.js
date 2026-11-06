@@ -276,6 +276,7 @@ function initializeAllSettings() {
     createSetting('gathermetal', 'Metal Only', 'For use with Mining/Gather Only. Only gathers Metal if you have foremany unlocked. ', 'boolean', false, null, "Core");
     createSetting('BuyUpgradesNew', ['Manual Upgrades', 'Buy All Upgrades', 'Upgrades no Coords'], 'Autobuys non-equipment upgrades (equipment is controlled in the Gear tab). The second option does NOT buy coordination (use this <b>ONLY</b> if you know what you\'re doing).', 'multitoggle', 1, null, "Core");
     createSetting('AutoScientist', 'Auto Scientist', 'Detects the Scientist challenges (I to V) and follows the wiki strategy: your science is limited, so only the planned upgrades are bought and science is kept in reserve for them.<br><b>I:</b> Battle, Bloodlust, Miners, 9 Coordinations, Mace II, Breastplate II<br><b>II:</b> Battle, Bloodlust, Miners, 8 Coordinations, Breastplate II<br><b>III &amp; V:</b> Battle, Bloodlust, Miners, 3 Coordinations<br><b>IV:</b> Battle, Miners<br>Bloodlust is skipped when Better AutoFight is on. Plans can be edited in MODULES.scientist.plans.', 'boolean', true, null, "Core");
+    createSetting('AutoFinishChallenges', 'Auto Finish Challenges', 'Some one-off challenges only end when a specific unique map is cleared. While one of them is active (not as a C²), AutoMaps runs that map once you reach the zone shown:<br><b>Dimension of Anger (Z22):</b> Discipline, Metal, Size, Frugal, Coordinate<br><b>Trimple of Doom (Z34):</b> Trapper, Meditate<br><b>Imploding Star (Z172):</b> Devastation<br><b>Dimension of Rage (Z16):</b> Unlucky<br><b>Prismatic Palace (Z21):</b> Downsize<br><b>Melting Point (Z51):</b> Trappapalooza<br>Needs AutoMaps on. Zones can be edited in MODULES.finishchallenges.maps.', 'boolean', true, null, "Core");
     createSetting('amalcoord', 'Amal Boost', 'Boost your Amal count for more Mi. Will not buy coords until your H:D ratio is below a certain value. This means that you will get amals quicker. Will not activate higher than your Amal Boost End Zone Setting! ', 'boolean', false, null, "Core");
     createSetting('amalcoordt', 'Amal Target', 'Set the amount of Amals you wish to aim for. Once this target is reached, it will buy coords below your Amal ratio regardless of your H:D, just enough to keep the Amal. -1 to disable and use H:D for entire boost. ', 'value', -1, null, "Core");
     createSetting('amalcoordhd', 'Amal Boost H:D', 'Set your H:D for Amal Boost here. The higher it is the less coords AT will buy. 0.0000025 is the default. ', 'value', 0.0000025, null, "Core");
@@ -1662,6 +1663,7 @@ function updateCustomButtons() {
     !radonon ? turnOn('TrapTrimps') : turnOff("TrapTrimps");
     !radonon ? turnOn('BuyUpgradesNew') : turnOff("BuyUpgradesNew");
     !radonon ? turnOn('AutoScientist') : turnOff("AutoScientist");
+    turnOn('AutoFinishChallenges');
     (!radonon && getPageSetting('ManualGather2') == 2 && bwRewardUnlocked("Foremany")) ? turnOn("gathermetal") : turnOff("gathermetal");
     !radonon ? turnOn("amalcoord") : turnOff("amalcoord");
     !radonon && getPageSetting('amalcoord') == true ? turnOn("amalcoordt") : turnOff("amalcoordt");

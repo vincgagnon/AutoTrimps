@@ -427,6 +427,10 @@ function autoMap() {
         for (var map in game.global.mapsOwnedArray) {
             var theMap = game.global.mapsOwnedArray[map];
             if (theMap.noRecycle) {
+                if (shouldRunFinishChallengeMap(theMap)) {
+                    selectedMap = theMap.id;
+                    break;
+                }
                 if (theMap.name == 'The Wall' && game.upgrades.Bounty.allowed == 0 && !game.talents.bounty.purchased) {
                     var theMapDifficulty = Math.ceil(theMap.difficulty / 2);
                     if (game.global.world < 15 + theMapDifficulty) continue;
@@ -1290,13 +1294,17 @@ function RautoMap() {
                 selectedMap = theMap.id;
                 break;
             } else if (runUniques && theMap.noRecycle) {
+                if (shouldRunFinishChallengeMap(theMap)) {
+                    selectedMap = theMap.id;
+                    break;
+                }
                 if (theMap.name == 'Big Wall' && !game.upgrades.Bounty.allowed && !game.upgrades.Bounty.done && game.global.highestRadonLevelCleared < 40) {
                     if (game.global.world < 8 && RcalcHDratio() > 4) continue;
                     selectedMap = theMap.id;
                     break;
                 }
                 if (theMap.name == 'Dimension of Rage' && document.getElementById("portalBtn").style.display == "none" && game.upgrades.Rage.done == 1) {
-                    if (game.global.challenge != "Unlucky" && (game.global.world < 16 || RcalcHDratio() < 2)) continue;
+                    if (game.global.challengeActive != "Unlucky" && (game.global.world < 16 || RcalcHDratio() < 2)) continue;
                     selectedMap = theMap.id;
                     break;
                 }
