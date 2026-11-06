@@ -1436,7 +1436,7 @@ function RcalcBadGuyDmg(enemy, attack, equality) {
         mute = true;
         number = rCalcMutationAttack();
     }
-    if (game.global.challengeActive == "Extermination" && getPageSetting('Rexterminateon') == true && getPageSetting('Rexterminatecalc') == true) {
+    if (game.global.challengeActive == "Exterminate" && getPageSetting('Rexterminateon') == true && getPageSetting('Rexterminatecalc') == true) {
         number = RgetEnemyMaxAttack(game.global.world, 90, 'Mantimp', 1.0)
     }
     if (game.portal.Equality.radLevel > 0 && getPageSetting('Rcalcmaxequality') == 0 && !equality) {
@@ -1537,7 +1537,7 @@ function RcalcEnemyHealth(world) {
 
     if (!mute) health = RcalcEnemyBaseHealth(world, 50, "Snimp");
 
-    if (game.global.challengeActive == "Extermination" && getPageSetting('Rexterminateon') == true && getPageSetting('Rexterminatecalc') == true) {
+    if (game.global.challengeActive == "Exterminate" && getPageSetting('Rexterminateon') == true && getPageSetting('Rexterminatecalc') == true) {
         health = RcalcEnemyBaseHealth(world, 90, "Beetlimp");
     }
     if (game.global.challengeActive == "Daily") {

@@ -501,7 +501,7 @@ function RequipCost(gameResource, equip) {
     if (equip.Equip)
         price = Math.ceil(price * (Math.pow(1 - game.portal.Artisanistry.modifier, game.portal.Artisanistry.radLevel)));
         price *= autoBattle.oneTimers.Artisan.owned ? autoBattle.oneTimers.Artisan.getMult() : 1;
-        if (game.global.challenges == "Pandemonium") price *= game.challenges.Pandemonium.getEnemyMult();
+        if (game.global.challengeActive == "Pandemonium") price *= game.challenges.Pandemonium.getEnemyMult();
     /*else
         price = Math.ceil(price * (Math.pow(1 - game.portal.Resourceful.modifier, game.portal.Resourceful.radLevel)));*/
     return price;
@@ -852,7 +852,7 @@ function mostEfficientEquipment(fakeLevels = {}) {
 
     var artBoost = Math.pow(1 - game.portal.Artisanistry.modifier, game.portal.Artisanistry.radLevel);
     artBoost *= autoBattle.oneTimers.Artisan.owned ? autoBattle.oneTimers.Artisan.getMult() : 1;
-    if (game.global.challenges == "Pandemonium") artBoost *= game.challenges.Pandemonium.getEnemyMult();
+    if (game.global.challengeActive == "Pandemonium") artBoost *= game.challenges.Pandemonium.getEnemyMult();
 
     for (var i in RequipmentList) {
         var nextLevelCost = game.equipment[i].cost[RequipmentList[i].Resource][0] * Math.pow(game.equipment[i].cost[RequipmentList[i].Resource][1], game.equipment[i].level + fakeLevels[i]) * artBoost;
@@ -930,7 +930,7 @@ function buyPrestigeMaybe(equipName) {
 
     var artBoost = Math.pow(1 - game.portal.Artisanistry.modifier, game.portal.Artisanistry.radLevel);
     artBoost *= autoBattle.oneTimers.Artisan.owned ? autoBattle.oneTimers.Artisan.getMult() : 1;
-    if (game.global.challenges == "Pandemonium") artBoost *= game.challenges.Pandemonium.getEnemyMult();
+    if (game.global.challengeActive == "Pandemonium") artBoost *= game.challenges.Pandemonium.getEnemyMult();
 
     var prestigeUpgradeName = "";
     var allUpgradeNames = Object.getOwnPropertyNames(game.upgrades);

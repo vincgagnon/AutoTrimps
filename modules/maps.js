@@ -758,7 +758,8 @@ function autoMap() {
                     runMap();
                     lastMapWeWereIn = getCurrentMapObject();
                 } else {
-                    selectedMap == "world";
+                    //Can't afford a map and no Explorers to earn fragments: go back to the World instead of idling here
+                    mapsClicked();
                 }
             } else {
                 debug("Buying a Map, level: #" + maplvlpicked, "maps", 'th-large');
