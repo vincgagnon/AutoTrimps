@@ -282,6 +282,9 @@ function doPortal(challenge) {
 	buyPortalUpgrade('Looting_II');
 	debug('Second Stage: Bought Max Looting II');
     }
+    if (portalWindowOpen && getPageSetting('AutoAllocatePerks')==3 && typeof perkyAllocate === 'function') {
+        perkyAllocate();
+    }
     activatePortal();
     lastHeliumZone = 0; zonePostpone = 0;
 }

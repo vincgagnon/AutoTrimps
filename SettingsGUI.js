@@ -281,9 +281,11 @@ function initializeAllSettings() {
     createSetting('amalcoordt', 'Amal Target', 'Set the amount of Amals you wish to aim for. Once this target is reached, it will buy coords below your Amal ratio regardless of your H:D, just enough to keep the Amal. -1 to disable and use H:D for entire boost. ', 'value', -1, null, "Core");
     createSetting('amalcoordhd', 'Amal Boost H:D', 'Set your H:D for Amal Boost here. The higher it is the less coords AT will buy. 0.0000025 is the default. ', 'value', 0.0000025, null, "Core");
     createSetting('amalcoordz', 'Amal Boost End Z', 'Amal Boost End Zone. Set the zone you want to stop Amal Boosting. -1 to do it infinitely. ', 'value', -1, null, "Core");
-    createSetting('AutoAllocatePerks', ['Auto Allocate Off', 'Auto Allocate On', 'Dump into Looting II'], 'Uses the AutoPerks ratio based preset system to automatically allocate your perks to spend whatever helium you have when you AutoPortal. Does not change Fixed Perks: siphonology, anticipation, meditation, relentlessness, range, agility, bait, trumps, packrat, capable. NEW: Dump into Looting II, dumps all loot gained from previous portal at specified zone', 'multitoggle', 0, null, 'Core');
+    createSetting('AutoAllocatePerks', ['Auto Allocate Off', 'Auto Allocate On', 'Dump into Looting II', 'Perky (Grimy)'], '<b>Perky (Grimy):</b> when AutoPortal portals, spends all your helium with the optimizer from grimy.github.io/perks, targeting your highest zone (see Perky Target Zone). The preset follows your zone, or the next challenge for Scientist and C² runs. Helium universe only.<br>Uses the AutoPerks ratio based preset system to automatically allocate your perks to spend whatever helium you have when you AutoPortal. Does not change Fixed Perks: siphonology, anticipation, meditation, relentlessness, range, agility, bait, trumps, packrat, capable. NEW: Dump into Looting II, dumps all loot gained from previous portal at specified zone', 'multitoggle', 0, null, 'Core');
 
     //Line 2
+    createSetting('PerkyZone', 'Perky Target Zone', 'Target zone for Perky (Grimy). -1 = your highest zone (HZE). Set a higher number if you expect to push past your HZE this run.', 'value', -1, null, 'Core');
+    createSetting('PerkyFixed', 'Perky Fixed Perks', 'Optional, same syntax as the Fixed perks box on grimy.github.io/perks, e.g. <b>siph=3, anti=10, bait<0</b>. Leave empty to let Perky decide everything.', 'textValue', '', null, 'Core');
     createSetting('fastallocate', 'Fast Allocate', 'Turn on if your helium is above 500Qa. Not recommended for low amounts of helium. ', 'boolean', false, null, 'Core');
     createSetting('TrapTrimps', 'Trap Trimps', 'Automatically trap trimps when needed, including building traps. (when you turn this off, you may aswell turn off the in-game autotraps button, think of the starving trimps that could eat that food!)', 'boolean', true, null, "Core");
     createSetting('AutoEggs', 'AutoEggs', 'Click easter egg if it exists, upon entering a new zone. Warning: Quite overpowered. Please solemnly swear that you are up to no good.', 'boolean', false, null, 'Core');
@@ -1671,6 +1673,8 @@ function updateCustomButtons() {
     !radonon && getPageSetting('amalcoord') == true ? turnOn("amalcoordz") : turnOff("amalcoordz");
     !radonon ? turnOn("AutoAllocatePerks") : turnOff("AutoAllocatePerks");
     !radonon && getPageSetting('AutoAllocatePerks') == 1 ? turnOn("fastallocate") : turnOff("fastallocate");
+    !radonon && getPageSetting('AutoAllocatePerks') == 3 ? turnOn("PerkyZone") : turnOff("PerkyZone");
+    !radonon && getPageSetting('AutoAllocatePerks') == 3 ? turnOn("PerkyFixed") : turnOff("PerkyFixed");
     boneShrinePurchased ? turnOn('AutoBoneChargeMax') : turnOff("AutoBoneChargeMax");
     boneShrinePurchased ? turnOn("AutoBoneChargeMaxStartZone") : turnOff("AutoBoneChargeMaxStartZone");
 

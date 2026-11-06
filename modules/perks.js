@@ -69,7 +69,7 @@ AutoPerks.displayGUI = function() {
     apGUI.$allocatorBtn1 = document.createElement("DIV");
     apGUI.$allocatorBtn1.id = 'allocatorBtn1';
     apGUI.$allocatorBtn1.setAttribute('class', 'btn inPortalBtn settingsBtn settingBtntrue');
-    apGUI.$allocatorBtn1.setAttribute('onclick', 'AutoPerks.clickAllocate()');
+    apGUI.$allocatorBtn1.setAttribute('onclick', "(getPageSetting('AutoAllocatePerks') == 3 && typeof perkyAllocate === 'function') ? perkyAllocate() : AutoPerks.clickAllocate()");
     apGUI.$allocatorBtn1.textContent = 'Allocate Perks';
     $buttonbar.appendChild(apGUI.$allocatorBtn1);
     $buttonbar.setAttribute('style', 'margin-bottom: 0.8vw;');
