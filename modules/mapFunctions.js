@@ -1304,11 +1304,12 @@ function prestigeClimb(lineCheck) {
 	const runningMapology = challengeActive('Mapology') && getPageSetting('mapology');
 	let targetPrestige = runningMapology ? getPageSetting('mapologyPrestige') : getPageSetting('prestigeClimb');
 
-	if (game.global.sciLevel < 2 && challengeActive('Scientist')) {
+	if (game.global.sLevel < 2 && challengeActive('Scientist')) {
+		/* Scientist I & II plans include Megamace and/or Bestplate (Breastplate II): farm prestige maps until they're unlocked */
 		const upgradeList = sciUpgrades();
-		const upgrades = ({ Megamace, Breastplate } = game.upgrades);
+		const upgrades = game.upgrades;
 		if (upgradeList.includes('Megamace') && upgrades.Megamace.locked) targetPrestige = 'Megamace';
-		if (upgradeList.includes('Breastplate') && upgrades.Megamace.locked) targetPrestige = 'Breastplate';
+		if (upgradeList.includes('Bestplate') && upgrades.Bestplate.locked) targetPrestige = 'Bestplate';
 	}
 
 	if (targetPrestige === 'Off') return farmingDetails;

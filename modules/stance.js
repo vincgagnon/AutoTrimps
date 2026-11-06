@@ -205,7 +205,8 @@ function wouldSurvive(formation = 'S', critPower = 2, baseStats = getBaseStats()
 	const harm = _directDamage(block, pierce, health - missingHealth, minDamage, critPower) + _challengeDamage(maxHealth, minDamage, maxDamage, missingHealth, block, pierce, critPower);
 	if (health - missingHealth > harm) return true;
 	// Updated Genes and Block
-	const newSquadRdy = newArmyRdy();
+	/* Devastation: the next army takes 750% of the overkill damage that killed this one, so a ready army isn't really fresh */
+	const newSquadRdy = newArmyRdy() && !challengeActive('Devastation');
 	const blockier = calcOurBlock(false, false);
 	const healthier = health * Math.pow(1.01, game.jobs.Geneticist.owned - game.global.lastLowGen);
 	const maxHealthier = maxHealth * Math.pow(1.01, game.jobs.Geneticist.owned - game.global.lastLowGen);
