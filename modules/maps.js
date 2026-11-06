@@ -137,6 +137,9 @@ function autoMap() {
         return;
     }
     if (challengeActive("Mapology") && game.challenges.Mapology.credits < 1) {
+        //AT forces "Exit to Maps", so a map that ends with 0 credits drops us in the map chamber.
+        //Credits are only earned by clearing World zones, so go back to the World instead of waiting forever.
+        if (game.global.preMapsActive && !game.global.mapsActive) mapsClicked();
         updateAutoMapsStatus();
         return;
     }

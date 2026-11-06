@@ -119,7 +119,7 @@ function challengeDamage(maxHealth, minDamage, maxDamage, missingHealth, block, 
 
     //Active Challenges
     var leadChallenge = challengeActive("Lead");
-    var electricityChallenge = challengeActive("Electricty") || game.global.challengeActive == "Mapocalypse";
+    var electricityChallenge = challengeActive("Electricity") || game.global.challengeActive == "Mapocalypse";
     var dailyPlague = game.global.challengeActive == "Daily" && typeof game.global.dailyChallenge.plague !== "undefined";
     var dailyBogged = game.global.challengeActive == "Daily" && typeof game.global.dailyChallenge.bogged !== "undefined";
     var dailyExplosive = game.global.challengeActive == "Daily" && typeof game.global.dailyChallenge.explosive !== "undefined";
@@ -209,6 +209,8 @@ function survive(formation = "S", critPower = 2, ignoreArmy) {
     var minDamage = baseMinDamage;
     var maxDamage = baseMaxDamage;
     var newSquadRdy = !ignoreArmy && game.resources.trimps.realMax() <= game.resources.trimps.owned + 1;
+    //Devastation: the next squad takes 750% of the overkill damage that killed this one, so it isn't really fresh
+    if (game.global.challengeActive == "Devastation") newSquadRdy = false;
 
     //Applies the formation modifiers
     if      (formation == "XB") {health /= 2;}
