@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name		AutoTrimps-SadAugust_HeirloomCalc
 // @version		1.0-SadAugust
-// @namespace	https://SadAugust.github.io/AutoTrimps
+// @namespace	https://vincgagnon.github.io/AutoTrimps
 // @description	Automate heirloom modifier allocation!
 // @author		omsi, SadAugust
 // @match		*://trimps.github.io/*
 // @match		*://kongregate.com/games/GreenSatellite/trimps/*
 // @match		*://trimpstest510.netlify.app/*
-// @connect		*://SadAugust.github.io/AutoTrimps/*
+// @connect		*://vincgagnon.github.io/AutoTrimps/*
 // @connect		*://trimps.github.io/*
 // @connect		self
 // @grant		GM_xmlhttpRequest
@@ -22,4 +22,4 @@ function loadScript(id, src) {
 }
 
 //This can be edited to point to your own Github Repository URL.
-loadScript('AutoTrimps-SadAugust-HeirloomCalc', 'https://sadaugust.github.io/AutoTrimps/mods/heirloomCalc.js');
+loadScript('AutoTrimps-SadAugust-HeirloomCalc', 'https://vincgagnon.github.io/AutoTrimps/mods/heirloomCalc.js');

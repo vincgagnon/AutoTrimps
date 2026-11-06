@@ -8,4 +8,4 @@ function loadScript(id, src) {
 
 offlineTimeSpeed = game.global.timeWarpLimit;
 game.global.timeWarpLimit = 0;
-loadScript('AutoTrimps-SadAugust', 'https://SadAugust.github.io/AutoTrimps/AutoTrimps2.js');
+loadScript('AutoTrimps-SadAugust', 'https://vincgagnon.github.io/AutoTrimps/AutoTrimps2.js');

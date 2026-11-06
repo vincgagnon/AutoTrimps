@@ -636,7 +636,7 @@ window.addEventListener('resize', handleResize);
 /* If using standalone version then inform user it has loaded. */
 if (typeof autoTrimpSettings === 'undefined' || (typeof autoTrimpSettings !== 'undefined' && typeof autoTrimpSettings.ATversion !== 'undefined' && !autoTrimpSettings.ATversion.includes('SadAugust'))) {
 	(async function () {
-		let basepathMutator = 'https://sadaugust.github.io/AutoTrimps/';
+		let basepathMutator = 'https://vincgagnon.github.io/AutoTrimps/';
 		if (typeof localVersion !== 'undefined') basepathMutator = 'https://localhost:8887/AutoTrimps_Local/';
 		const modules = ['import-export'];
 		const css = [`${basepathMutator}css/mutatorPreset.css`];

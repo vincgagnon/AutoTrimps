@@ -2589,7 +2589,7 @@ setupHeirloomUI();
 
 /* If using standalone version then inform user it has loaded. */
 if (typeof autoTrimpSettings === 'undefined' || (typeof autoTrimpSettings !== 'undefined' && typeof autoTrimpSettings.ATversion !== 'undefined' && !autoTrimpSettings.ATversion.includes('SadAugust'))) {
-	let basepathFarmCalc = 'https://sadaugust.github.io/AutoTrimps/';
+	let basepathFarmCalc = 'https://vincgagnon.github.io/AutoTrimps/';
 	if (typeof localVersion !== 'undefined') basepathFarmCalc = 'https://localhost:8887/AutoTrimps_Local/';
 
 	const linkStylesheet = document.createElement('link');

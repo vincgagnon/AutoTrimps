@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name		AutoTrimps-SadAugust
 // @version		1.0-SadAugust
-// @namespace	https://SadAugust.github.io/AutoTrimps
+// @namespace	https://vincgagnon.github.io/AutoTrimps
 // @description	Automate all the trimps!
 // @author		zininzinin, spindrjr, Ishkaru, genBTC, Zeker0, SadAugust
 // @match		*://trimps.github.io/*
 // @match		*://kongregate.com/games/GreenSatellite/trimps/*
 // @match		*://trimpstest510.netlify.app/*
-// @connect		*://SadAugust.github.io/AutoTrimps/*
+// @connect		*://vincgagnon.github.io/AutoTrimps/*
 // @connect		*://trimps.github.io/*
 // @connect		self
 // @connect	spiredb.tdb.fi
@@ -45,4 +45,4 @@ function loadScript(id, src) {
 
 offlineTimeSpeed = game.global.timeWarpLimit;
 game.global.timeWarpLimit = 0;
-loadScript('AutoTrimps-SadAugust', 'https://sadaugust.github.io/AutoTrimps/AutoTrimps2.js');
+loadScript('AutoTrimps-SadAugust', 'https://vincgagnon.github.io/AutoTrimps/AutoTrimps2.js');
