@@ -33,6 +33,24 @@ function atlantrimpRespecOverride() {
 	setupChallengeAutoPortal('Desolation');
 }
 
+/* Manual portal: run Perky/Surky when the player clicks Activate Portal.
+   AutoPortal already allocates in doPortal() and calls activatePortal() directly, and AT's own activateClicked() calls
+   all happen in View Perks (respec), so this only fires for a portal the player started. */
+if (typeof originalActivateClicked !== 'function') {
+	var originalActivateClicked = activateClicked;
+	activateClicked = function () {
+		try {
+			if (portalWindowOpen && !game.global.viewingUpgrades && typeof atData.autoPerks !== 'undefined' && typeof portalPerkCalc === 'function' && getPageSetting('autoPerks', portalUniverse) && getPageSetting('autoPerksManual', portalUniverse)) {
+				portalPerkCalc();
+				debug(`${portalUniverse === 2 ? 'Surky' : 'Perky'} - Allocated perks for a manual portal.`, 'portal');
+			}
+		} catch (e) {
+			debug(`Manual portal perk allocation failed: ${e}`, 'error');
+		}
+		return originalActivateClicked(...arguments);
+	};
+}
+
 /* On loading save */
 if (typeof originalLoad !== 'function') {
 	var originalLoad = load;

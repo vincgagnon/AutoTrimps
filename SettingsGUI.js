@@ -277,6 +277,17 @@ function initialiseAllSettings() {
 			}, 'boolean', false, null, [1, 2],
 			function () { return (getPageSetting('autoPerks', atConfig.settingUniverse)) });
 
+		createSetting('autoPerksManual',
+			function () { return ('Allocate On Manual Portal') },
+			function () {
+				const calcName = atConfig.settingUniverse === 2 ? 'Surky' : 'Perky';
+				let description = "<p>Also runs <b>" + calcName + "</b> when you portal yourself: clicking <b>Activate Portal</b> allocates your perks first (with the same preset swapping as Auto Portal), then shows the usual confirmation so you can check them.</p>";
+				description += "<p>Perk changes you made by hand on the portal screen will be replaced.</p>";
+				description += "<p><b>Recommended:</b> On</p>";
+				return description;
+			}, 'boolean', true, null, [1, 2],
+			function () { return (getPageSetting('autoPerks', atConfig.settingUniverse)) });
+
 		createSetting('presetCombatRespec',
 			function () {
 				const trimple = atConfig.settingUniverse === 1 ? "Trimple" : "Atlantrimp";
